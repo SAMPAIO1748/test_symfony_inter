@@ -12,6 +12,9 @@
 			<h1>TEST SYMFONY INTERMEDIAIRE</h1>
 			<h2>{{batman}}</h2>
 			<h2>{{ front }}</h2>
+			{% for gcategory in gcategories.getAll() %}
+				<h4>{{ gcategory.name }}</h4>
+			{% endfor %}
 		</header>
 
 		<main>
