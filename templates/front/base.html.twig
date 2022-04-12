@@ -12,6 +12,11 @@
 			<h1>TEST SYMFONY INTERMEDIAIRE</h1>
 			<h2>{{batman}}</h2>
 			<h2>{{ front }}</h2>
+			<form action="{{ path('front_search') }}" method="get">
+				<label for="term">Recherche</label>
+				<input type="search" name="term" id="term">
+				<input type="submit" value="Chercher">
+			</form>
 			{% for gcategory in gcategories.getAll() %}
 				<h4>{{ gcategory.name }}</h4>
 			{% endfor %}
@@ -22,11 +27,11 @@
 		</main>
 
 		{#
-		
-				Exercice : créer une variable globale qui va contenir tous les products et l'afficher sur toutes les pages admin, 
-				Bonus faire la même chose avec licence
-				
-				#}
+														
+																Exercice : créer une variable globale qui va contenir tous les products et l'afficher sur toutes les pages admin, 
+																Bonus faire la même chose avec licence
+																
+																#}
 
 	</body>
 </html>

@@ -21,6 +21,26 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    // Fonction qui va chercher dans la table product et category de la base de données
+    public function searchByTerm($term)
+    {
+        // QueryBuilder permet de créer des requêtes SQL en PHP.
+        $queryBuilder = $this->createQueryBuilder('product');
+
+        // Requête SQL
+        $query = $queryBuilder
+            ->select('product') // SELECT
+            ->leftJoin('product.category', 'category') // LEFT JOIN sur la table category
+            ->where('product.name LIKE :term') // WHERE
+            ->orWhere('product.description LIKE :term') // OR WHERE
+            ->orWhere('category.name LIKE :term') // OR WHERE
+            ->orWhere('category.description LIKE :term') // OR WHERE
+            ->setParameter('term', "%" . $term . "%") // Sécurise le term et lui attribue une valeur
+            ->getQuery(); // Retourne la requête
+
+        return $query->getResult(); // Retourne le tableau des résultats
+    }
+
     /**
      * @throws ORMException
      * @throws OptimisticLockException
