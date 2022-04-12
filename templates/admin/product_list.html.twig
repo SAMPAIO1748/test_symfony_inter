@@ -1,0 +1,56 @@
+{% extends "admin/base.html.twig" %}
+
+
+{% block main %}
+
+	<table>
+
+		<thead>
+
+			<tr>
+
+				<th>Nom</th>
+				<th>Prix</th>
+				<th>Stock</th>
+				<th>Description</th>
+				<th>Modifier</th>
+				<th>Supprimer</th>
+
+			</tr>
+
+		</thead>
+
+		<tbody>
+
+			{% for product in products %}
+
+				<tr>
+
+					<td>
+						<a href="{{ path('admin_product_show', {'id' : product.id}) }}">
+							{{ product.name }}</a>
+					</td>
+					<td>
+						{{ product.price }}
+						€
+					</td>
+					<td>{{ product.stock }}</td>
+					<td>{{ product.description }}</td>
+					<td>
+						<a href="{{ path('admin_product_update', {'id' : product.id }) }}">Modifier le produit</a>
+					</td>
+					<td>
+						<a href="{{ path('admin_product_delete', {'id' : product.id }) }}">Supprimer le produit</a>
+					</td>
+
+				</tr>
+
+			{% endfor %}
+
+		</tbody>
+
+	</table>
+
+	<a href="{{ path('admin_product_create') }}">Ajouter un produit</a>
+
+{% endblock %}
