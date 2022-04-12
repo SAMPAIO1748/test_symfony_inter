@@ -21,6 +21,23 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
+    public function searchByTerm($term)
+    {
+        $queryBuilder = $this->createQueryBuilder('category');
+
+        $query = $queryBuilder
+            ->select('category')
+            ->leftJoin('category.products', 'product')
+            ->where('category.name LIKE :term')
+            ->orWhere('category.description LIKE :term')
+            ->orWhere('product.name LIKE :term')
+            ->orWhere('product.description LIKE :term')
+            ->setParameter('term', '%' . $term . '%')
+            ->getQuery();
+
+        return $query->getResult();
+    }
+
     /**
      * @throws ORMException
      * @throws OptimisticLockException

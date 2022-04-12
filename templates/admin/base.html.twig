@@ -14,6 +14,11 @@
 			{% for product in gproducts.getAll() %}
 				<h3>{{product.name}}</h3>
 			{% endfor %}
+			<form action="{{ path('admin_search') }}" method="get">
+				<label for="term">Recherche</label>
+				<input type="search" name="term" id="term">
+				<input type="submit" value="Rechercher">
+			</form>
 		</header>
 
 		<main>
