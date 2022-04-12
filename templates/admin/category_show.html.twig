@@ -1,0 +1,37 @@
+{% extends "admin/base.html.twig" %}
+
+{% block main %}
+
+	<table>
+		<thead>
+			<tr>
+				<td>Nom</td>
+				<td>Description</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{category.name}}</td>
+				<td>{{category.description}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Produits de cette catégorie</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for product in category.products %}
+				<tr>
+					<td>
+						<a href="{{ path('admin_product_show', {'id' : product.id}) }}">{{ product.name }}</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}
