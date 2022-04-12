@@ -10,8 +10,12 @@
 
 		<header>
 			<h1>TEST SYMFONY INTERMEDIAIRE - Partie administrateur</h1>
+			<h2>{{ admin }}</h2>
+			{% for product in gproducts.getAll() %}
+				<h3>{{product.name}}</h3>
+			{% endfor %}
 		</header>
-		<h2>{{ admin }}</h2>
+
 
 		<main>
 			{% block main %}{% endblock %}
