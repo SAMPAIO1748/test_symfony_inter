@@ -1,0 +1,18 @@
+{% extends "admin/base.html.twig" %}
+
+{% block main %}
+
+	{% for image in images %}
+		<img src="{{ asset("media/" ~ image.src) }}" alt="{{ image.alt }}">
+		<h2>
+			<a href="{{ path("show_media", {'id' : image.id }) }}">{{ image.title }}</a>
+		</h2>
+		<h3>
+			<a href="{{ path("media_update", {'id' : image.id}) }}">Modifier l'image</a>
+		</h3>
+		<h3>
+			<a href="{{ path("delete_media", {'id' : image.id}) }}">Supprimer l'image</a>
+		</h3>
+	{% endfor %}
+
+{% endblock %}
