@@ -24,4 +24,10 @@
 		</tbody>
 	</table>
 
+	{% for media in product.media %}
+
+		<img src="{{ asset("media/" ~ media.src) }}" alt="{{ media.alt }}">
+
+	{% endfor %}
+
 {% endblock %}

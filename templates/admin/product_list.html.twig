@@ -36,6 +36,7 @@
 					</td>
 					<td>{{ product.stock }}</td>
 					<td>{{ product.description }}</td>
+					<td><img src="{{ asset("media/" ~ product.media[0].src) }}" alt="{{ product.media[0].alt }}"></td>
 					<td>
 						<a href="{{ path('admin_product_update', {'id' : product.id }) }}">Modifier le produit</a>
 					</td>
