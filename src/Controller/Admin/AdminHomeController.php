@@ -10,9 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminHomeController extends AbstractController
 {
-    /**
-     * @Route("admin/search", name="admin_search")
-     */
     public function adminSearch(Request $request, CategoryRepository $categoryRepository)
     {
         $term = $request->query->get('term');

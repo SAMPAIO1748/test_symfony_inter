@@ -14,9 +14,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AdminMediaController extends AbstractController
 {
-    /**
-     * @Route("admin/create/media", name="admin_create_media")
-     */
+
     public function adminCreateMedia(
         Request $request,
         EntityManagerInterface $entityManagerInterface,
@@ -71,9 +69,6 @@ class AdminMediaController extends AbstractController
 
     //Exercice : Faire le CRUD complet pour media
 
-    /**
-     * @Route("/admin/medias/", name="list_media")
-     */
     public function listMedia(MediaRepository $mediaRepository)
     {
         $images = $mediaRepository->findAll();
@@ -81,9 +76,6 @@ class AdminMediaController extends AbstractController
         return $this->render("admin/media_list.html.twig", ['images' => $images]);
     }
 
-    /**
-     * @Route("/admin/media/{id}", name="show_media")
-     */
     public function showMedia($id, MediaRepository $mediaRepository)
     {
         $image = $mediaRepository->find($id);
@@ -91,9 +83,6 @@ class AdminMediaController extends AbstractController
         return $this->render("admin/media_show.html.twig", ['image' => $image]);
     }
 
-    /**
-     * @Route("/admin/update/media/{id}", name="media_update")
-     */
     public function updateMedia(
         Request $request,
         EntityManagerInterface $entityManagerInterface,
@@ -148,9 +137,6 @@ class AdminMediaController extends AbstractController
         return $this->render("admin/media_form.html.twig", ['mediaForm' => $mediaForm->createView()]);
     }
 
-    /**
-     * @Route("admin/delete/media/{id}", name="delete_media")
-     */
     public function deleteMedia(
         $id,
         EntityManagerInterface $entityManagerInterface,

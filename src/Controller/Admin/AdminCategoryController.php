@@ -13,9 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AdminCategoryController extends AbstractController
 {
-    /**
-     * @Route("admin/categories", name="admin_list_category")
-     */
+
     public function listCategory(CategoryRepository $categoryRepository)
     {
         $categories = $categoryRepository->findAll();
@@ -23,9 +21,6 @@ class AdminCategoryController extends AbstractController
         return $this->render("admin/category_list.html.twig", ['categories' => $categories]);
     }
 
-    /**
-     * @Route("admin/category/{id}", name="admin_show_category")
-     */
     public function showCategory($id, CategoryRepository $categoryRepository)
     {
         $category = $categoryRepository->find($id);
@@ -33,9 +28,6 @@ class AdminCategoryController extends AbstractController
         return $this->render("admin/category_show.html.twig", ['category' => $category]);
     }
 
-    /**
-     * @Route("admin/create/category", name="admin_create_category")
-     */
     public function createCategory(Request $request, EntityManagerInterface $entityManagerInterface)
     {
         $category = new Category();
@@ -54,9 +46,6 @@ class AdminCategoryController extends AbstractController
         return $this->render("admin/category_form.html.twig", ['categoryForm' => $categoryForm->createView()]);
     }
 
-    /**
-     * @Route("admin/update/category/{id}", name="admin_update_category")
-     */
     public function updateCategory(
         $id,
         Request $request,
@@ -80,9 +69,6 @@ class AdminCategoryController extends AbstractController
         return $this->render("admin/category_form.html.twig", ['categoryForm' => $categoryForm->createView()]);
     }
 
-    /**
-     * @Route("admin/delete/category/{id}", name="admin_delete_category")
-     */
     public function deleteCategory(
         $id,
         EntityManagerInterface $entityManagerInterface,

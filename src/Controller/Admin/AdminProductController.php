@@ -20,9 +20,6 @@ class AdminProductController extends AbstractController
         return $this->render('admin/product_list.html.twig', ['products' => $products]);
     }
 
-    /**
-     * @Route("admin/product/{id}", name="admin_product_show")
-     */
     public function adminProductShow($id, ProductRepository $productRepository)
     {
         $product = $productRepository->find($id);
@@ -30,9 +27,6 @@ class AdminProductController extends AbstractController
         return $this->render('admin/product_show.html.twig', ['product' => $product]);
     }
 
-    /**
-     * @Route("admin/create/product", name="admin_product_create")
-     */
     public function adminCreateProduct(Request $request, EntityManagerInterface $entityManagerInterface)
     {
         $product = new Product();
@@ -51,9 +45,6 @@ class AdminProductController extends AbstractController
         return $this->render("admin/product_form.html.twig", ['productForm' => $productForm->createView()]);
     }
 
-    /**
-     * @Route("admin/update/product/{id}", name="admin_product_update")
-     */
     public function adminProductUpdate(
         $id,
         EntityManagerInterface $entityManagerInterface,
@@ -76,9 +67,6 @@ class AdminProductController extends AbstractController
         return $this->render("admin/product_form.html.twig", ['productForm' => $productForm->createView()]);
     }
 
-    /**
-     * @Route("admin/delete/product/{id}", name="admin_product_delete")
-     */
     public function adminDeleteProduct($id, EntityManagerInterface $entityManagerInterface, ProductRepository $productRepository)
     {
         $product = $productRepository->find($id);

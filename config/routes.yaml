@@ -1,3 +1,63 @@
 admin_product_list: # nom de la route
   path: /admin/products # chemin dans l'url de la route
   controller: App\Controller\Admin\AdminProductController::adminProductList # fonction avec la chemin du controller qui est associée à cette route
+
+admin_product_show:
+  path: /admin/product/{id}
+  controller: App\Controller\Admin\AdminProductController::adminProductShow
+
+admin_product_create:
+  path: /admin/create/product
+  controller: App\Controller\Admin\AdminProductController::adminCreateProduct
+
+admin_product_update:
+  path: /admin/update/product/{id}
+  controller: App\Controller\Admin\AdminProductController::adminProductUpdate
+
+admin_product_delete:
+  path: /admin/delete/product/{id}
+  controller: App\Controller\Admin\AdminProductController::adminDeleteProduct
+
+admin_list_category:
+  path: /admin/categories
+  controller: App\Controller\Admin\AdminCategoryController::listCategory
+
+admin_show_category:
+  path: /admin/category/{id}
+  controller: App\Controller\Admin\AdminCategoryController::showCategory
+
+admin_create_category:
+  path: /admin/create/category
+  controller: App\Controller\Admin\AdminCategoryController::createCategory
+
+admin_update_category:
+  path: /admin/update/category/{id}
+  controller: App\Controller\Admin\AdminCategoryController::updateCategory
+
+admin_delete_category:
+  path: /admin/delete/category/{id}
+  controller: App\Controller\Admin\AdminCategoryController::deleteCategory
+
+admin_create_media:
+  path: /admin/create/media
+  controller: App\Controller\Admin\AdminMediaController::adminCreateMedia
+
+list_media:
+  path: /admin/medias
+  controller: App\Controller\Admin\AdminMediaController::listMedia
+
+show_media:
+  path: /admin/media/{id}
+  controller: App\Controller\Admin\AdminMediaController::showMedia
+
+media_update:
+  path: /admin/update/media/{id}
+  controller: App\Controller\Admin\AdminMediaController::updateMedia
+
+delete_media:
+  path: /admin/delete/media/{id}
+  controller: App\Controller\Admin\AdminMediaController::deleteMedia
+
+admin_search:
+  path: /admin/search
+  controller: App\Controller\Admin\AdminHomeController::adminSearch
