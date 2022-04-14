@@ -13,9 +13,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AdminProductController extends AbstractController
 {
-    /**
-     * @Route("/admin/products", name="admin_product_list")
-     */
     public function adminProductList(ProductRepository $productRepository)
     {
         $products = $productRepository->findAll();

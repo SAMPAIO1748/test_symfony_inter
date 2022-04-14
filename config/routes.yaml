@@ -1,3 +1,3 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+admin_product_list: # nom de la route
+  path: /admin/products # chemin dans l'url de la route
+  controller: App\Controller\Admin\AdminProductController::adminProductList # fonction avec la chemin du controller qui est associée à cette route
